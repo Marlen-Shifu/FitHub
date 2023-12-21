@@ -7,8 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SQLiteHandler implements DatabaseHandler {
-    private static final String JDBC_URL = HelloApplication.class.getResource("database/sqlite.db").toExternalForm();
-    // Add the close method as well
+    private static final String JDBC_URL = "jdbc:sqlite:" + "src/main/resources/com/example/fithub/database/sqlite.db";
+
+    public SQLiteHandler() {
+        createUsersTableIfNotExists();
+    }
+
+    private void createUsersTableIfNotExists() {
+        try (Connection connection = DriverManager.getConnection(JDBC_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "CREATE TABLE IF NOT EXISTS users (" +
+                             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                             "username TEXT NOT NULL," +
+                             "password TEXT NOT NULL," +
+                             "email TEXT NOT NULL," +
+                             "gender TEXT NOT NULL)"
+             )) {
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     // Add the close method for ResultSet
     private void close(ResultSet resultSet) {
