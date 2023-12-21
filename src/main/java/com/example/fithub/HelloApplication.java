@@ -13,8 +13,8 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registerFit.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginFit.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

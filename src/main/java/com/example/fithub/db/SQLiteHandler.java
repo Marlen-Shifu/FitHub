@@ -29,6 +29,24 @@ public class SQLiteHandler implements DatabaseHandler {
         }
     }
 
+    public boolean authenticateUser(String username, String password) {
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try (Connection connection = DriverManager.getConnection(JDBC_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return resultSet.next(); // If there's at least one result, authentication is successful
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     // Add the close method for ResultSet
     private void close(ResultSet resultSet) {
         if (resultSet != null) {

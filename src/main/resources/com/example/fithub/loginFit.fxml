@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="809.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="809.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fithub.LoginController">
     <children>
         <Pane layoutX="476.0" layoutY="148.0" prefHeight="322.0" prefWidth="283.0" AnchorPane.bottomAnchor="121.0" AnchorPane.topAnchor="148.0">
             <children>
